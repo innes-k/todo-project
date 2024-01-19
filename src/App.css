@@ -41,4 +41,11 @@
 /* 개별 박스 정렬 Flex */
 .boxFlex {
   display: flex;
+  min-height: 150px;
+}
+
+.working,
+.done > span {
+  font-size: 25px;
+  font-weight: bold;
 }

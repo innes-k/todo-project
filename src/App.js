@@ -5,12 +5,12 @@ import React, { useState } from "react";
 function App() {
   // box, title, body state설정
   const [box, setBox] = useState([
-    {
-      id: 1,
-      title: "제목을 입력하세요",
-      body: "내용을 입력하세요",
-      isDone: false,
-    },
+    // {
+    //   id: 1,
+    //   title: "제목을 입력하세요",
+    //   body: "내용을 입력하세요",
+    //   isDone: false,
+    // },
   ]);
 
   const [title, setTitle] = useState("");
@@ -40,9 +40,13 @@ function App() {
     setBody(e.target.value);
   };
 
-  // 삭제 onclick 함수 (filtering) - click시 key={}의 값을 매개변수로 넣음 -> 넣은 매개변수를 onclick 함수에서 받아옴 -> 사용가능
+  // 삭제 onclick 함수 (filtering)
+  // - click시 key={}의 값을 매개변수로 넣음 -> 넣은 매개변수를 onclick 함수에서 받아옴 -> 사용가능
+  // - filter한 결과를 set 해줘야 State가 변경되면서 결과값이 출력됨
+  // - 렌더링을 바꿀때 반드시 필요한것 set!
   const removeClickHandler = (id) => {
-    alert(id);
+    const newBox = box.filter((item) => item.id !== id);
+    setBox(newBox);
   };
 
   // JSX 시작
@@ -86,7 +90,7 @@ function App() {
           </div>
         </div>
         <div className="done">
-          <span style={{ marginLeft: "10px" }}>Done..🥳</span>
+          <span>Done..🥳</span>
           {/* <div className="workingBox">
           <span style={{ fontSize: "20px" }}>제목</span>
           <p style={{ fontSize: "15px" }}>내용</p>
