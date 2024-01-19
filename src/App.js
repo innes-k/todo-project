@@ -4,13 +4,34 @@ import React, { useState } from "react";
 
 function App() {
   const [box, setBox] = useState([
-    { id: 0, title: "제목2", body: "내용2", isDone: false },
-    { id: 1, title: "제목3", body: "내용3", isDone: false },
-    { id: 2, title: "제목4", body: "내용4", isDone: false },
+    {
+      id: 1,
+      title: "제목을 입력하세요",
+      body: "내용을 입력하세요",
+      isDone: false,
+    },
   ]);
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+
+  const addClickHandler = () => {
+    const newBoxObj = {
+      id: box.length + 1,
+      title: title,
+      body: body,
+      isDone: false,
+    };
+    setBox([...box, newBoxObj]);
+  };
+
+  const inputTitle = function (e) {
+    setTitle(e.target.value);
+  };
+
+  const inputBody = function (e) {
+    setBody(e.target.value);
+  };
 
   return (
     <div className="container">
@@ -21,16 +42,12 @@ function App() {
       <div className="inputTitle">
         <div>
           제목 :
-          <input
-            value={title}
-            onChange={function (e) {
-              setTitle(e.target.value);
-            }}
-          />
-          &nbsp; 내용 : <input /> &nbsp;
+          <input value={title} onChange={inputTitle} />
+          &nbsp; 내용
+          <input value={body} onChange={inputBody} /> &nbsp;
         </div>
         <div className="addBtn">
-          <button>추가하기</button>
+          <button onClick={addClickHandler}>추가하기</button>
         </div>
       </div>
       <div className="boxContainer">
