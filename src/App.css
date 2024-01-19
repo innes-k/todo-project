@@ -44,7 +44,12 @@
   min-height: 150px;
 }
 
-.working,
+/* working, done 글씨 css */
+.working > span {
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .done > span {
   font-size: 25px;
   font-weight: bold;

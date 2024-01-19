@@ -11,24 +11,16 @@ function App() {
     //   body: "내용을 입력하세요",
     //   isDone: false,
     // },
+    // {
+    //   id: 2,
+    //   title: "제목을 입력하세요",
+    //   body: "내용을 입력하세요",
+    //   isDone: false,
+    // },
   ]);
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-
-  // '추가'버튼의 onclick 함수
-  const addClickHandler = () => {
-    const newBoxObj = {
-      id: box.length + 1,
-      title: title,
-      body: body,
-      isDone: false,
-    };
-    setBox([...box, newBoxObj]);
-    // input에 value={title}, body 정해져 있으니까, 클릭 후에 title, body를 ''로 바꿔준다는 명령 set -> 클릭 후 input란이 빈값으로 바뀜
-    setTitle("");
-    setBody("");
-  };
 
   // '제목' 입력한 value - onchange 함수
   const inputTitle = function (e) {
@@ -40,14 +32,40 @@ function App() {
     setBody(e.target.value);
   };
 
-  // 삭제 onclick 함수 (filtering)
-  // - click시 key={}의 값을 매개변수로 넣음 -> 넣은 매개변수를 onclick 함수에서 받아옴 -> 사용가능
-  // - filter한 결과를 set 해줘야 State가 변경되면서 결과값이 출력됨
-  // - 렌더링을 바꿀때 반드시 필요한것 set!
-  const removeClickHandler = (id) => {
-    const newBox = box.filter((item) => item.id !== id);
-    setBox(newBox);
+  // 추가 onclick
+  const addHandler = function () {
+    const newObj = {
+      id: box.length + 1,
+      title: title,
+      body: body,
+      isDone: false,
+    };
+    setBox([...box, newObj]);
+    // 클릭 후 input 빈칸으로 초기화
+    setTitle("");
+    setBody("");
   };
+
+  // '완료' 클릭하면 isDone을 true로 바꿔줘
+  const completeHandler = function (id) {
+    // 한빈님 답변
+    // console.log(id);
+    // const idx = box.findIndex((item) => item.id === id);
+    // console.log(idx);
+    // console.log(box[idx]);
+    // console.log(box[idx].id);
+    // true로 바꾼 애 -> setBox로 다시 정해주기
+
+    const trueBox = box.map(function (item) {
+      if (item.id === id) {
+        return { ...item, isDone: true };
+      }
+      return item;
+    });
+    setBox(trueBox);
+  };
+
+  // '취소' 클릭하면 isDone을 false로 바꿔줘
 
   // JSX 시작
   return (
@@ -64,39 +82,51 @@ function App() {
           <input value={body} onChange={inputBody} /> &nbsp;
         </div>
         <div className="addBtn">
-          <button onClick={addClickHandler}>추가하기</button>
+          <button onClick={addHandler}>추가하기</button>
         </div>
       </div>
       <div className="boxContainer">
         <div className="working">
           <span>Working..🔥</span>
           <div className="boxFlex">
-            {box.map(function (item) {
-              return (
-                <div key={item.id} className="workingBox">
-                  <span style={{ fontSize: "20px" }}>{item.title}</span>
-                  <p style={{ fontSize: "15px" }}>{item.body}</p>
-                  <button
-                    onClick={() => removeClickHandler(item.id)}
-                    className="removeBtn"
-                  >
-                    삭제하기
-                  </button>
-                  &nbsp;
-                  <button className="completeBtn">완료</button>
-                </div>
-              );
-            })}
+            {box
+              .filter((item) => item.isDone === false)
+              .map(function (item) {
+                // console.log(item);
+                return (
+                  <div key={item.id} className="workingBox">
+                    <span style={{ fontSize: "20px" }}>{item.title}</span>
+                    <p style={{ fontSize: "15px" }}>{item.body}</p>
+                    <button className="removeBtn">삭제하기</button>
+                    &nbsp;
+                    <button
+                      onClick={() => completeHandler(item.id)}
+                      className="completeBtn"
+                    >
+                      완료
+                    </button>
+                  </div>
+                );
+              })}
           </div>
         </div>
         <div className="done">
           <span>Done..🥳</span>
-          {/* <div className="workingBox">
-          <span style={{ fontSize: "20px" }}>제목</span>
-          <p style={{ fontSize: "15px" }}>내용</p>
-          <button className="removeBtn">삭제하기</button>
-          <button className="completeBtn">완료</button>
-        </div> */}
+          <div className="boxFlex">
+            {box
+              .filter((item) => item.isDone === true)
+              .map(function (item) {
+                return (
+                  <div key={item.id} className="workingBox">
+                    <span style={{ fontSize: "20px" }}>{item.title}</span>
+                    <p style={{ fontSize: "15px" }}>{item.body}</p>
+                    <button className="removeBtn">삭제하기</button>
+                    &nbsp;
+                    <button className="completeBtn">취소하기</button>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
     </div>
