@@ -33,7 +33,7 @@
 .workingBox {
   border: 3px solid rgba(7, 93, 34, 0.806);
   border-radius: 10px;
-  width: 300px;
+  width: 200px;
   padding: 10px;
   margin: 10px;
 }
@@ -41,6 +41,7 @@
 /* 개별 박스 정렬 Flex */
 .boxFlex {
   display: flex;
+  flex-wrap: wrap;
   min-height: 150px;
 }
 
