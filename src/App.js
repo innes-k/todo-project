@@ -80,6 +80,14 @@ function App() {
     setBox(falseBox);
   };
 
+  // 삭제버튼 onclick
+  const removeHandler = function (id) {
+    const removeBox = box.filter(function (item) {
+      return item.id !== id;
+    });
+    setBox(removeBox);
+  };
+
   // JSX 시작
   return (
     <div className="container">
@@ -105,12 +113,16 @@ function App() {
             {box
               .filter((item) => item.isDone === false)
               .map(function (item) {
-                // console.log(item);
                 return (
                   <div key={item.id} className="workingBox">
                     <span style={{ fontSize: "20px" }}>{item.title}</span>
                     <p style={{ fontSize: "15px" }}>{item.body}</p>
-                    <button className="removeBtn">삭제하기</button>
+                    <button
+                      onClick={() => removeHandler(item.id)}
+                      className="removeBtn"
+                    >
+                      삭제하기
+                    </button>
                     &nbsp;
                     <button
                       onClick={() => completeHandler(item.id)}
@@ -133,7 +145,12 @@ function App() {
                   <div key={item.id} className="workingBox">
                     <span style={{ fontSize: "20px" }}>{item.title}</span>
                     <p style={{ fontSize: "15px" }}>{item.body}</p>
-                    <button className="removeBtn">삭제하기</button>
+                    <button
+                      onClick={() => removeHandler(item.id)}
+                      className="removeBtn"
+                    >
+                      삭제하기
+                    </button>
                     &nbsp;
                     <button
                       onClick={() => cancelHandler(item.id)}
