@@ -70,6 +70,15 @@ function App() {
   };
 
   // '취소' 클릭하면 isDone을 false로 바꿔줘
+  const cancelHandler = function (id) {
+    const falseBox = box.map(function (item) {
+      if (item.id === id) {
+        return { ...item, isDone: false };
+      }
+      return item;
+    });
+    setBox(falseBox);
+  };
 
   // JSX 시작
   return (
@@ -126,7 +135,12 @@ function App() {
                     <p style={{ fontSize: "15px" }}>{item.body}</p>
                     <button className="removeBtn">삭제하기</button>
                     &nbsp;
-                    <button className="completeBtn">취소하기</button>
+                    <button
+                      onClick={() => cancelHandler(item.id)}
+                      className="completeBtn"
+                    >
+                      취소하기
+                    </button>
                   </div>
                 );
               })}
