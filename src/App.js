@@ -6,13 +6,7 @@ function App() {
   // box, title, body state설정
   const [box, setBox] = useState([
     // {
-    //   id: 1,
-    //   title: "제목을 입력하세요",
-    //   body: "내용을 입력하세요",
-    //   isDone: false,
-    // },
-    // {
-    //   id: 2,
+    //   id: 0,
     //   title: "제목을 입력하세요",
     //   body: "내용을 입력하세요",
     //   isDone: false,
@@ -22,25 +16,35 @@ function App() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  // '제목' 입력한 value - onchange 함수
+  // input '제목' 입력한 value - onchange 함수
   const inputTitle = function (e) {
     setTitle(e.target.value);
   };
 
-  // '내용' 입력한 value - onchange 함수
+  // input '내용' 입력한 value - onchange 함수
   const inputBody = function (e) {
     setBody(e.target.value);
   };
 
   // 추가 onclick
   const addHandler = function () {
+    // id 값 중복없게 하기 위해 newId 만드는 조건문
+    let newId;
+    if (box.length > 0) {
+      newId = box[box.length - 1].id + 1;
+    } else if (box.length <= 0) {
+      newId = 0;
+    }
+
+    // input의 value 값 반영한 새로운 객체 생성
     const newObj = {
-      id: box.length + 1,
+      id: newId,
       title: title,
       body: body,
       isDone: false,
     };
     setBox([...box, newObj]);
+
     // 클릭 후 input 빈칸으로 초기화
     setTitle("");
     setBody("");
