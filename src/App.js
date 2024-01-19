@@ -40,6 +40,11 @@ function App() {
     setBody(e.target.value);
   };
 
+  // 삭제 onclick 함수 (filtering) - click시 key={}의 값을 매개변수로 넣음 -> 넣은 매개변수를 onclick 함수에서 받아옴 -> 사용가능
+  const removeClickHandler = (id) => {
+    alert(id);
+  };
+
   // JSX 시작
   return (
     <div className="container">
@@ -67,7 +72,13 @@ function App() {
                 <div key={item.id} className="workingBox">
                   <span style={{ fontSize: "20px" }}>{item.title}</span>
                   <p style={{ fontSize: "15px" }}>{item.body}</p>
-                  <button className="removeBtn">삭제하기</button>&nbsp;
+                  <button
+                    onClick={() => removeClickHandler(item.id)}
+                    className="removeBtn"
+                  >
+                    삭제하기
+                  </button>
+                  &nbsp;
                   <button className="completeBtn">완료</button>
                 </div>
               );
