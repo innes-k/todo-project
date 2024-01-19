@@ -1,0 +1,31 @@
+/* 큰 틀 */
+.container {
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0px auto auto auto;
+}
+
+/* 최상위 타이틀 */
+.title {
+  border: 1px solid rgb(233, 232, 232);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.inputTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(233, 232, 232);
+  border: 1px solid gray;
+  margin-bottom: 10px;
+}
+
+.workingBox {
+  border: 3px solid rgba(7, 93, 34, 0.806);
+  border-radius: 10px;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+}
