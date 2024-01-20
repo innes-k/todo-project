@@ -36,6 +36,8 @@ function App() {
       newId = 0;
     }
 
+    console.log(title);
+
     // input의 value 값 반영한 새로운 객체 생성
     const newObj = {
       id: newId,
@@ -80,6 +82,13 @@ function App() {
     setBox(removeBox);
   };
 
+  // enter키로 todo 추가하기
+  const onCheckEnter = (e) => {
+    if (e.key === "Enter") {
+      addHandler();
+    }
+  };
+
   // JSX 시작
   return (
     <div className="container">
@@ -88,30 +97,35 @@ function App() {
       </div>
       <div className="container-inputTitle">
         <div className="inputTitle">
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
               value={title}
               onChange={inputTitle}
               type="email"
-              class="form-control"
+              className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
             />
             <label for="floatingInput">제목</label>
           </div>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
+              onKeyPress={onCheckEnter}
               value={body}
               onChange={inputBody}
               type="email"
-              class="form-control"
+              className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
             />
             <label for="floatingInput">내용을 입력하세요</label>
           </div>
           <div className="addBtn">
-            <button onClick={addHandler} type="button" class="btn text-white">
+            <button
+              onClick={addHandler}
+              type="button"
+              className="btn text-white"
+            >
               추가하기
             </button>
           </div>
