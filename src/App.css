@@ -1,51 +1,82 @@
 /* 큰 틀 */
-.container {
-  max-width: 1200px;
+body {
+  background-color: rgb(202, 232, 244);
   min-width: 800px;
+  max-width: 1200px;
   margin: 0px auto auto auto;
 }
 
 /* 최상위 타이틀 */
 .title {
-  border: 1px solid rgb(233, 232, 232);
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px;
 }
 
-/* input칸 타이틀 */
+/* inputTitle 화면 가운데 정렬 */
+.container-inputTitle {
+  display: flex;
+  justify-content: center;
+}
+
+/* input 타이틀 (input box) */
 .inputTitle {
+  width: 400px;
+  height: 250px;
   display: flex;
-  justify-content: start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  background-color: rgb(233, 232, 232);
-  border: 1px solid gray;
-  margin-bottom: 10px;
+  background-color: white;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  border: 2px solid rgb(135, 206, 235);
 }
 
-/* 박스 큰 틀 */
+/* input칸 너비 */
+.form-floating {
+  width: 300px;
+}
+
+/* '추가하기' 버튼 너비 */
+.addBtn > button {
+  width: 300px;
+  background-color: rgb(135, 206, 235);
+}
+
+/* to Do List, Done 화면 가운데 정렬 */
 .boxContainer {
   display: flex;
   flex-direction: column;
 }
 
-/* 개별 박스 디자인*/
+/* ToDoList, Done 박스 개별 디자인 */
 .workingBox {
-  border: 3px solid rgba(7, 93, 34, 0.806);
-  border-radius: 10px;
-  width: 200px;
+  border: 2px solid rgb(129, 129, 215);
+  background-color: white;
+  border-radius: 30px;
+  width: 250px;
+  min-height: 170px;
   padding: 10px;
-  margin: 10px;
+  margin: 14px;
 }
 
-/* 개별 박스 정렬 Flex */
+.workingBox:hover {
+  box-shadow: 0px 0px 5px 0px navy;
+  background-color: rgb(231, 234, 251);
+}
+
+/* ToDoList, Done 안에서의 박스 정렬 */
 .boxFlex {
   display: flex;
   flex-wrap: wrap;
   min-height: 150px;
+  border-top: 2px solid rgb(242, 242, 242);
 }
 
-/* working, done 글씨 css */
+/* ToDoList, Done 글씨 */
 .working > span {
   font-size: 25px;
   font-weight: bold;

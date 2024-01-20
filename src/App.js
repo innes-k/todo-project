@@ -52,14 +52,6 @@ function App() {
 
   // '완료' 클릭하면 isDone을 true로 바꿔줘
   const completeHandler = function (id) {
-    // 한빈님 답변
-    // console.log(id);
-    // const idx = box.findIndex((item) => item.id === id);
-    // console.log(idx);
-    // console.log(box[idx]);
-    // console.log(box[idx].id);
-    // true로 바꾼 애 -> setBox로 다시 정해주기
-
     const trueBox = box.map(function (item) {
       if (item.id === id) {
         return { ...item, isDone: true };
@@ -92,11 +84,43 @@ function App() {
   return (
     <div className="container">
       <div className="title">
-        <span>My Todo List</span>
-        <span>React</span>
+        <span>☁️ Welcome to To Do List! ⛅️</span>
       </div>
-      <div className="inputTitle">
-        <div>
+      <div className="container-inputTitle">
+        <div className="inputTitle">
+          <div class="form-floating mb-3">
+            <input
+              value={title}
+              onChange={inputTitle}
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">제목</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              value={body}
+              onChange={inputBody}
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">내용을 입력하세요</label>
+          </div>
+          <div className="addBtn">
+            <button
+              onClick={addHandler}
+              type="button"
+              class="btn text-white"
+              // style={{ backgroundColor: "rgb(135, 206, 235)" }}
+            >
+              추가하기
+            </button>
+          </div>
+          {/* <div>
           제목 :&nbsp;
           <input value={title} onChange={inputTitle} />
           &nbsp; 내용 :&nbsp;
@@ -104,11 +128,12 @@ function App() {
         </div>
         <div className="addBtn">
           <button onClick={addHandler}>추가하기</button>
+        </div> */}
         </div>
       </div>
       <div className="boxContainer">
         <div className="working">
-          <span>Working..🔥</span>
+          <span>📝 To Do List</span>
           <div className="boxFlex">
             {box
               .filter((item) => item.isDone === false)
@@ -136,7 +161,7 @@ function App() {
           </div>
         </div>
         <div className="done">
-          <span>Done..🥳</span>
+          <span>👍🏻 Done</span>
           <div className="boxFlex">
             {box
               .filter((item) => item.isDone === true)
