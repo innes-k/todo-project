@@ -140,8 +140,8 @@ function App() {
               .map(function (item) {
                 return (
                   <div key={item.id} className="workingBox">
-                    <span style={{ fontSize: "20px" }}>{item.title}</span>
-                    <p style={{ fontSize: "15px" }}>{item.body}</p>
+                    <p className="boxTitle">{item.title}</p>
+                    <p className="boxBody">{item.body}</p>
                     <button
                       onClick={() => removeHandler(item.id)}
                       className="removeBtn"
@@ -168,8 +168,8 @@ function App() {
               .map(function (item) {
                 return (
                   <div key={item.id} className="workingBox">
-                    <span style={{ fontSize: "20px" }}>{item.title}</span>
-                    <p style={{ fontSize: "15px" }}>{item.body}</p>
+                    <p className="boxTitle">{item.title}</p>
+                    <p className="boxBody">{item.body}</p>
                     <button
                       onClick={() => removeHandler(item.id)}
                       className="removeBtn"
@@ -179,7 +179,7 @@ function App() {
                     &nbsp;
                     <button
                       onClick={() => cancelHandler(item.id)}
-                      className="completeBtn"
+                      className="cancelBtn"
                     >
                       취소하기
                     </button>

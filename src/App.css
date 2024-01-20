@@ -64,6 +64,27 @@ body {
   margin: 14px;
 }
 
+/* 박스의 title, body 디자인 */
+.boxTitle,
+.boxBody {
+  margin: auto;
+}
+
+.boxTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(135, 206, 235);
+}
+
+.boxBody {
+  font-size: 15px;
+  margin: auto 10px 15px 10px;
+  min-height: 45px;
+  word-wrap: break-word;
+}
+
 .workingBox:hover {
   box-shadow: 0px 0px 10px 0px rgb(32, 172, 227);
   /* background-color: rgb(231, 234, 251); */
@@ -88,21 +109,32 @@ body {
   font-weight: bold;
 }
 
-/* 삭제 버튼 */
+/* 삭제, 완료, 취소 버튼 */
+.workingBox > button {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
 .removeBtn {
   color: rgb(91, 91, 91);
   background-color: rgb(255, 236, 130);
   border: 0px;
   border-radius: 10px;
-  width: 110px;
+  margin-left: 12px;
 }
 
-/* 완료 버튼 */
-.completeBtn {
+.completeBtn,
+.cancelBtn {
   color: rgb(91, 91, 91);
-  background-color: rgb(101, 161, 211);
   border: 0px;
   border-radius: 10px;
-  width: 110px;
   color: white;
+}
+
+.completeBtn {
+  background-color: rgba(235, 154, 2, 0.92);
+}
+
+.cancelBtn {
+  background-color: rgb(101, 161, 211);
 }
