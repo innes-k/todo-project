@@ -111,24 +111,10 @@ function App() {
             <label for="floatingInput">내용을 입력하세요</label>
           </div>
           <div className="addBtn">
-            <button
-              onClick={addHandler}
-              type="button"
-              class="btn text-white"
-              // style={{ backgroundColor: "rgb(135, 206, 235)" }}
-            >
+            <button onClick={addHandler} type="button" class="btn text-white">
               추가하기
             </button>
           </div>
-          {/* <div>
-          제목 :&nbsp;
-          <input value={title} onChange={inputTitle} />
-          &nbsp; 내용 :&nbsp;
-          <input value={body} onChange={inputBody} /> &nbsp;
-        </div>
-        <div className="addBtn">
-          <button onClick={addHandler}>추가하기</button>
-        </div> */}
         </div>
       </div>
       <div className="boxContainer">
