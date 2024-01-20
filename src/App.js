@@ -28,28 +28,32 @@ function App() {
 
   // 추가 onclick
   const addHandler = function () {
-    // id 값 중복없게 하기 위해 newId 만드는 조건문
-    let newId;
-    if (box.length > 0) {
-      newId = box[box.length - 1].id + 1;
-    } else if (box.length <= 0) {
-      newId = 0;
+    if (title === "") {
+      alert("제목을 입력해주세요.");
+    } else if (body === "") {
+      alert("내용을 입력해주세요.");
+    } else {
+      // id 값 중복없게 하기 위해 newId 만드는 조건문
+      let newId;
+      if (box.length > 0) {
+        newId = box[box.length - 1].id + 1;
+      } else if (box.length <= 0) {
+        newId = 0;
+      }
+
+      // input의 value 값 반영한 새로운 객체 생성
+      const newObj = {
+        id: newId,
+        title: title,
+        body: body,
+        isDone: false,
+      };
+      setBox([...box, newObj]);
+
+      // 클릭 후 input 빈칸으로 초기화
+      setTitle("");
+      setBody("");
     }
-
-    console.log(title);
-
-    // input의 value 값 반영한 새로운 객체 생성
-    const newObj = {
-      id: newId,
-      title: title,
-      body: body,
-      isDone: false,
-    };
-    setBox([...box, newObj]);
-
-    // 클릭 후 input 빈칸으로 초기화
-    setTitle("");
-    setBody("");
   };
 
   // '완료' 클릭하면 isDone을 true로 바꿔줘
@@ -106,7 +110,7 @@ function App() {
               id="floatingInput"
               placeholder="name@example.com"
             />
-            <label for="floatingInput">제목</label>
+            <label htmlFor="floatingInput">제목</label>
           </div>
           <div className="form-floating mb-3">
             <input
@@ -118,7 +122,7 @@ function App() {
               id="floatingInput"
               placeholder="name@example.com"
             />
-            <label for="floatingInput">내용을 입력하세요</label>
+            <label htmlFor="floatingInput">내용을 입력하세요</label>
           </div>
           <div className="addBtn">
             <button
