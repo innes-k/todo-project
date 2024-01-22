@@ -7,8 +7,8 @@ function App() {
   const [box, setBox] = useState([
     // { 기본형 box 참고용 주석
     //   id: 0,
-    //   title: "제목을 입력하세요",
-    //   body: "내용을 입력하세요",
+    //   title: "제목",
+    //   body: "내용",
     //   isDone: false,
     // },
   ]);
@@ -106,7 +106,7 @@ function App() {
               type="email"
               className="form-control"
               id="floatingInput"
-              placeholder="name@example.com"
+              placeholder="inputTitle"
             />
             <label htmlFor="floatingInput">제목</label>
           </div>
@@ -118,7 +118,7 @@ function App() {
               type="email"
               className="form-control"
               id="floatingInput"
-              placeholder="name@example.com"
+              placeholder="inputBody"
             />
             <label htmlFor="floatingInput">내용을 입력하세요</label>
           </div>
@@ -135,13 +135,13 @@ function App() {
       </div>
       <div className="boxContainer">
         <div className="working">
-          <span>📝 To Do List</span>
+          <span>📝 Working </span>
           <div className="boxFlex">
             {box
               .filter((item) => item.isDone === false)
               .map(function (item) {
                 return (
-                  <div key={item.id} className="workingBox">
+                  <div key={item.id} className="toDoBox">
                     <p className="boxTitle">{item.title}</p>
                     <p className="boxBody">{item.body}</p>
                     <button
@@ -169,7 +169,7 @@ function App() {
               .filter((item) => item.isDone === true)
               .map(function (item) {
                 return (
-                  <div key={item.id} className="workingBox">
+                  <div key={item.id} className="toDoBox">
                     <p className="boxTitle">{item.title}</p>
                     <p className="boxBody">{item.body}</p>
                     <button

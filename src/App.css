@@ -46,7 +46,7 @@ body {
   background-color: rgb(135, 206, 235);
 }
 
-/* ToDoList, Done 타이틀 글씨 */
+/* Working, Done 타이틀 글씨 */
 .working > span {
   font-size: 25px;
   font-weight: bold;
@@ -57,8 +57,8 @@ body {
   font-weight: bold;
 }
 
-/* ToDoList, Done 박스 개별 디자인 */
-.workingBox {
+/* Working, Done 박스 개별 디자인 */
+.toDoBox {
   /* border: 2px solid rgb(129, 129, 215); */
   border: 2px solid rgb(135, 206, 235);
   background-color: white;
@@ -69,7 +69,7 @@ body {
   margin: 14px;
 }
 
-/* Todo list 각 박스의 title, body 디자인 */
+/* Working, Done 각 박스의 title, body 디자인 */
 .boxTitle,
 .boxBody {
   margin: auto;
@@ -90,12 +90,12 @@ body {
   word-wrap: break-word;
 }
 
-.workingBox:hover {
+.toDoBox:hover {
   box-shadow: 0px 0px 10px 0px rgb(32, 172, 227);
   /* background-color: rgb(231, 234, 251); */
 }
 
-/* ToDoList, Done 안에서의 박스 정렬 */
+/* Working, Done 안에서의 박스 정렬 */
 .boxFlex {
   display: flex;
   flex-wrap: wrap;
@@ -104,7 +104,7 @@ body {
 }
 
 /* 삭제, 완료, 취소 버튼 */
-.workingBox > button {
+.toDoBox > button {
   width: 100px;
   margin-bottom: 10px;
 }
