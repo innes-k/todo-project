@@ -96,6 +96,7 @@ function App() {
       <div className="title">
         <span>☁️ Welcome to To Do List! ⛅️</span>
       </div>
+      {/* input 박스 */}
       <div className="container-inputTitle">
         <div className="inputTitle">
           <div className="form-floating mb-3">
