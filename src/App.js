@@ -30,8 +30,12 @@ function App() {
   const addHandler = function () {
     if (title === "") {
       alert("제목을 입력해주세요.");
+      setTitle("");
+      setBody("");
     } else if (body === "") {
       alert("내용을 입력해주세요.");
+      setTitle("");
+      setBody("");
     } else {
       // id 값 중복없게 하기 위해 newId 만드는 조건문
       let newId;

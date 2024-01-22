@@ -31,33 +31,27 @@
 
 <br/>
 
-- 영화 상세 페이지
+- To Do List에 목록 추가
 
-  ![상세페이지](./images/detail.png)
-
-<br/>
-
-- 영화 검색
-
-  ![영화검색](./images/search.gif)
+  ![목록추가](./images/add.gif)
 
 <br/>
 
-- 영화 카드 정렬
+- 완료 항목 Done으로 이동
 
-  ![메인카드정렬](./images/sorting2.gif)
-
-<br/>
-
-- 한줄평 CRUD(작성, 수정, 삭제)
-
-  ![한줄평](./images/comments.png)
+  ![목록이동](./images/done.gif)
 
 <br/>
 
-- footer
+- Done 항목을 다시 To Do List로 복구
 
-  ![footer](./images/footer.png)
+  ![list복구](./images/cancel.gif)
+
+<br/>
+
+- 항목 삭제하기
+
+  ![삭제](./images/remove.gif)
 
 <br/>
 
@@ -73,7 +67,10 @@
 
    - Done 목록의 상태 버튼은 '취소하기'로 변경
 
-3. 공통 Layout 적용
+3. 항목 삭제하기
+   - '삭제하기' 버튼 클릭 시 항목 삭제
+
+4. 공통 Layout 적용
 
    - 최대 넓이는 1200px, 최소 넓이는 800px, 가운데 정렬
 
@@ -82,16 +79,17 @@
 ### 선택 구현사항
 
 1.  유효성 검사
+- 제목, 내용 미입력시 alert 생성 후 input 초기화
    
     - 제목 미입력시
 
-      ![제목 유효성](./images/validation-comments.png)
+      ![제목유효성](./images/titleValid.gif)
 
       <br>
 
     - 내용 미입력시
 
-      ![내용 유효성](./images/validation-main.png)
+      ![내용유효성](./images/bodyValid.gif)
 
 <br>
 
