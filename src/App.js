@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function App() {
   // box, title, body state설정
   const [box, setBox] = useState([
-    // {
+    // { 기본형 box 참고용 주석
     //   id: 0,
     //   title: "제목을 입력하세요",
     //   body: "내용을 입력하세요",
@@ -26,18 +26,23 @@ function App() {
     setBody(e.target.value);
   };
 
-  // 추가 onclick
+  // 제목, 내용 input을 빈칸으로 초기화하는 함수
+  const makeInputEmpty = () => {
+    setTitle("");
+    setBody("");
+  };
+
+  // '추가하기'버튼 onclick
   const addHandler = function () {
+    // 제목, 내용 유효성 검사 alert
     if (title === "") {
       alert("제목을 입력해주세요.");
-      setTitle("");
-      setBody("");
+      makeInputEmpty();
     } else if (body === "") {
       alert("내용을 입력해주세요.");
-      setTitle("");
-      setBody("");
+      makeInputEmpty();
     } else {
-      // id 값 중복없게 하기 위해 newId 만드는 조건문
+      // 리스트들 간에 id 값 중복없도록 newId 만드는 조건문
       let newId;
       if (box.length > 0) {
         newId = box[box.length - 1].id + 1;
@@ -54,32 +59,20 @@ function App() {
       };
       setBox([...box, newObj]);
 
-      // 클릭 후 input 빈칸으로 초기화
-      setTitle("");
-      setBody("");
+      // '추가' 클릭 후 input 빈칸으로 초기화
+      makeInputEmpty();
     }
   };
 
-  // '완료' 클릭하면 isDone을 true로 바꿔줘
-  const completeHandler = function (id) {
-    const trueBox = box.map(function (item) {
+  // '완료' 클릭시 isDone을 true로, '취소' 클릭시 isDone을 false로 바꾸기
+  const reLocateHandler = function (id) {
+    const reLocateBox = box.map(function (item) {
       if (item.id === id) {
-        return { ...item, isDone: true };
+        return { ...item, isDone: !item.isDone };
       }
       return item;
     });
-    setBox(trueBox);
-  };
-
-  // '취소' 클릭하면 isDone을 false로 바꿔줘
-  const cancelHandler = function (id) {
-    const falseBox = box.map(function (item) {
-      if (item.id === id) {
-        return { ...item, isDone: false };
-      }
-      return item;
-    });
-    setBox(falseBox);
+    setBox(reLocateBox);
   };
 
   // 삭제버튼 onclick
@@ -158,7 +151,7 @@ function App() {
                     </button>
                     &nbsp;
                     <button
-                      onClick={() => completeHandler(item.id)}
+                      onClick={() => reLocateHandler(item.id)}
                       className="completeBtn"
                     >
                       완료
@@ -186,7 +179,7 @@ function App() {
                     </button>
                     &nbsp;
                     <button
-                      onClick={() => cancelHandler(item.id)}
+                      onClick={() => reLocateHandler(item.id)}
                       className="cancelBtn"
                     >
                       취소하기
