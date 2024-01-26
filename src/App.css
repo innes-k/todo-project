@@ -58,41 +58,43 @@ body {
 }
 
 /* Working, Done 박스 개별 디자인 */
-.toDoBox {
-  /* border: 2px solid rgb(129, 129, 215); */
+.TodoCard {
   border: 2px solid rgb(135, 206, 235);
   background-color: white;
   border-radius: 30px;
   width: 250px;
-  min-height: 170px;
-  padding: 10px;
+  /* min-height: 170px; */
+  padding: 15px 25px 15px 25px;
   margin: 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* Working, Done 각 박스의 title, body 디자인 */
-.boxTitle,
-.boxBody {
-  margin: auto;
+.TodoCard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.boxTitle {
+.TodoCard-body {
   font-size: 20px;
-  font-weight: bold;
-  margin: 10px 10px 10px 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(135, 206, 235);
-}
-
-.boxBody {
-  font-size: 15px;
-  margin: auto 10px 15px 10px;
-  min-height: 45px;
   word-wrap: break-word;
 }
 
-.toDoBox:hover {
+time {
+  font-size: 15px;
+  color: gray;
+}
+
+.TodoCard-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TodoCard:hover {
   box-shadow: 0px 0px 10px 0px rgb(32, 172, 227);
-  /* background-color: rgb(231, 234, 251); */
 }
 
 /* Working, Done 안에서의 박스 정렬 */
@@ -104,8 +106,8 @@ body {
 }
 
 /* 삭제, 완료, 취소 버튼 */
-.toDoBox > button {
-  width: 100px;
+.TodoCard-buttons > button {
+  width: 80px;
   margin-bottom: 10px;
 }
 
@@ -114,7 +116,6 @@ body {
   background-color: rgb(255, 236, 130);
   border: 0px;
   border-radius: 10px;
-  margin-left: 12px;
 }
 
 .completeBtn,

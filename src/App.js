@@ -107,23 +107,44 @@ function App() {
               .filter((item) => item.isDone === false)
               .map(function (item) {
                 return (
-                  <div key={item.id} className="toDoBox">
-                    <p className="boxTitle">{item.title}</p>
-                    <p className="boxBody">{item.body}</p>
-                    <button
-                      onClick={() => removeHandler(item.id)}
-                      className="removeBtn"
-                    >
-                      삭제하기
-                    </button>
-                    &nbsp;
-                    <button
-                      onClick={() => reLocateHandler(item.id)}
-                      className="completeBtn"
-                    >
-                      완료
-                    </button>
-                  </div>
+                  // <div key={item.id} className="toDoBox">
+                  //   <p className="boxTitle">{item.title}</p>
+                  //   <p className="boxBody">{item.body}</p>
+                  //   <button
+                  //     onClick={() => removeHandler(item.id)}
+                  //     className="removeBtn"
+                  //   >
+                  //     삭제하기
+                  //   </button>
+                  //   &nbsp;
+                  //   <button
+                  //     onClick={() => reLocateHandler(item.id)}
+                  //     className="completeBtn"
+                  //   >
+                  //     완료
+                  //   </button>
+                  // </div>
+                  <article key={item.id} className="TodoCard">
+                    <div className="TodoCard-body">
+                      <h2>{item.title}</h2>
+                      <p>{item.body}</p>
+                      <time>2024-01-26</time>
+                    </div>
+                    <div className="TodoCard-buttons">
+                      <button
+                        onClick={() => removeHandler(item.id)}
+                        className="removeBtn"
+                      >
+                        삭제하기
+                      </button>
+                      <button
+                        onClick={() => reLocateHandler(item.id)}
+                        className="completeBtn"
+                      >
+                        완료하기
+                      </button>
+                    </div>
+                  </article>
                 );
               })}
           </div>
