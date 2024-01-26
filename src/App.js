@@ -3,6 +3,7 @@ import "./App.css";
 import React, { useState } from "react";
 import InputBox from "./components/inputBox";
 import Header from "./layout/header";
+// import TodoItem from "./components/test";
 
 // 부모 컴포넌트 시작
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [deadline, setDeadline] = useState("");
 
   // input '제목' 입력한 value - onchange 함수
   const inputTitle = function (e) {
@@ -20,6 +22,11 @@ function App() {
   // input '내용' 입력한 value - onchange 함수
   const inputBody = function (e) {
     setBody(e.target.value);
+  };
+
+  // deadline 변경 - onChange 함수
+  const changeDeadline = (e) => {
+    setDeadline(e.target.value);
   };
 
   // 제목, 내용 input을 빈칸으로 초기화하는 함수
@@ -52,6 +59,7 @@ function App() {
         title: title,
         body: body,
         isDone: false,
+        deadline: deadline,
       };
       setBox([...box, newObj]);
 
@@ -98,6 +106,8 @@ function App() {
         body={body}
         inputBody={inputBody}
         addHandler={addHandler}
+        deadline={deadline}
+        changeDeadline={changeDeadline}
       />
       <div className="boxContainer">
         <div className="working">
@@ -128,7 +138,7 @@ function App() {
                     <div className="TodoCard-body">
                       <h2>{item.title}</h2>
                       <p>{item.body}</p>
-                      <time>2024-01-26</time>
+                      <time>{item.deadline}</time>
                     </div>
                     <div className="TodoCard-buttons">
                       <button

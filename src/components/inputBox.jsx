@@ -26,6 +26,13 @@ function InputBox(props) {
             />
             <label htmlFor="floatingInput">내용을 입력하세요</label>
           </div>
+          <time>
+            <label for="start">마감일 :</label>
+            <input type="date" id="start" name="trip-start" min="2024-01-01" max="2026-12-31" 
+            value={props.deadline}
+            onChange={props.changeDeadline}
+            />
+          </time>
           <div className="addBtn">
             <button
               onClick={props.addHandler}
