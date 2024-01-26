@@ -37,31 +37,27 @@ function App() {
 
   // '추가하기'버튼 onclick
   const addHandler = function () {
-    // 제목, 내용 유효성 검사 alert
+    // 제목, 내용, 마감일 유효성 검사 alert
     if (title === "") {
       alert("제목을 입력해주세요.");
       makeInputEmpty();
     } else if (body === "") {
       alert("내용을 입력해주세요.");
       makeInputEmpty();
+    } else if (deadline === "") {
+      alert("마감일을 지정해주세요.");
+      makeInputEmpty();
     } else {
-      // 리스트들 간에 id 값 중복없도록 newId 만드는 조건문
-      let newId;
-      if (box.length > 0) {
-        newId = box[box.length - 1].id + 1;
-      } else if (box.length <= 0) {
-        newId = 0;
-      }
-
       // input의 value 값 반영한 새로운 객체 생성
       const newObj = {
-        id: newId,
+        id: Date.now(),
         title: title,
         body: body,
         isDone: false,
         deadline: deadline,
       };
       setBox([...box, newObj]);
+      console.log(newObj.id);
 
       // '추가' 클릭 후 input 빈칸으로 초기화
       makeInputEmpty();
@@ -117,23 +113,6 @@ function App() {
               .filter((item) => item.isDone === false)
               .map(function (item) {
                 return (
-                  // <div key={item.id} className="toDoBox">
-                  //   <p className="boxTitle">{item.title}</p>
-                  //   <p className="boxBody">{item.body}</p>
-                  //   <button
-                  //     onClick={() => removeHandler(item.id)}
-                  //     className="removeBtn"
-                  //   >
-                  //     삭제하기
-                  //   </button>
-                  //   &nbsp;
-                  //   <button
-                  //     onClick={() => reLocateHandler(item.id)}
-                  //     className="completeBtn"
-                  //   >
-                  //     완료
-                  //   </button>
-                  // </div>
                   <article key={item.id} className="TodoCard">
                     <div className="TodoCard-body">
                       <h2>{item.title}</h2>
@@ -166,23 +145,27 @@ function App() {
               .filter((item) => item.isDone === true)
               .map(function (item) {
                 return (
-                  <div key={item.id} className="toDoBox">
-                    <p className="boxTitle">{item.title}</p>
-                    <p className="boxBody">{item.body}</p>
-                    <button
-                      onClick={() => removeHandler(item.id)}
-                      className="removeBtn"
-                    >
-                      삭제하기
-                    </button>
-                    &nbsp;
-                    <button
-                      onClick={() => reLocateHandler(item.id)}
-                      className="cancelBtn"
-                    >
-                      취소하기
-                    </button>
-                  </div>
+                  <article key={item.id} className="TodoCard">
+                    <div className="TodoCard-body">
+                      <h2>{item.title}</h2>
+                      <p>{item.body}</p>
+                      <time>{item.deadline}</time>
+                    </div>
+                    <div className="TodoCard-buttons">
+                      <button
+                        onClick={() => removeHandler(item.id)}
+                        className="removeBtn"
+                      >
+                        삭제하기
+                      </button>
+                      <button
+                        onClick={() => reLocateHandler(item.id)}
+                        className="cancelBtn"
+                      >
+                        취소하기
+                      </button>
+                    </div>
+                  </article>
                 );
               })}
           </div>
