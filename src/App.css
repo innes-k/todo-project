@@ -23,7 +23,7 @@ body {
 /* input box */
 .inputTitle {
   width: 400px;
-  height: 250px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,6 +38,15 @@ body {
 /* input칸 너비 */
 .form-floating {
   width: 300px;
+}
+
+.inputBox-time {
+  margin-bottom: 10px;
+}
+
+.inputBox-time > input {
+  width: 250px;
+  height: 30px;
 }
 
 /* '추가하기' 버튼 너비 */
@@ -64,7 +73,7 @@ body {
   border-radius: 30px;
   width: 250px;
   /* min-height: 170px; */
-  padding: 15px 25px 15px 25px;
+  padding: 20px 20px 10px 20px;
   margin: 14px;
 
   display: flex;
@@ -76,6 +85,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3px;
+}
+
+.TodoCard-body > h2 {
+  font-size: 25px;
 }
 
 .TodoCard-body {

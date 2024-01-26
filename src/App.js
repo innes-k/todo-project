@@ -3,9 +3,7 @@ import "./App.css";
 import React, { useState } from "react";
 import InputBox from "./components/inputBox";
 import Header from "./layout/header";
-// import TodoItem from "./components/test";
 
-// 부모 컴포넌트 시작
 function App() {
   // box, title, body state설정
   const [box, setBox] = useState([]);
@@ -49,15 +47,25 @@ function App() {
       makeInputEmpty();
     } else {
       // input의 value 값 반영한 새로운 객체 생성
-      const newObj = {
-        id: Date.now(),
-        title: title,
-        body: body,
-        isDone: false,
-        deadline: deadline,
-      };
-      setBox([...box, newObj]);
-      console.log(newObj.id);
+      const newDateObj = new Date(deadline);
+      const afterChangeDateType = newDateObj.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long", // "long"을 사용하면 월 이름이 됩니다.
+        day: "numeric",
+      });
+
+      setDeadline(afterChangeDateType);
+
+      setBox((box) => [
+        ...box,
+        {
+          id: Date.now(),
+          title: title,
+          body: body,
+          isDone: false,
+          deadline: afterChangeDateType,
+        },
+      ]);
 
       // '추가' 클릭 후 input 빈칸으로 초기화
       makeInputEmpty();
@@ -117,7 +125,7 @@ function App() {
                     <div className="TodoCard-body">
                       <h2>{item.title}</h2>
                       <p>{item.body}</p>
-                      <time>{item.deadline}</time>
+                      <time>{item.deadline} 까지</time>
                     </div>
                     <div className="TodoCard-buttons">
                       <button
@@ -149,7 +157,7 @@ function App() {
                     <div className="TodoCard-body">
                       <h2>{item.title}</h2>
                       <p>{item.body}</p>
-                      <time>{item.deadline}</time>
+                      <time>{item.deadline} 까지</time>
                     </div>
                     <div className="TodoCard-buttons">
                       <button
