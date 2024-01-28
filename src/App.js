@@ -3,6 +3,8 @@ import "./App.css";
 import React, { useState } from "react";
 import InputBox from "./components/inputBox";
 import Header from "./layout/header";
+import Working from "./components/working";
+import Done from "./components/done";
 
 function App() {
   // box, title, body state설정
@@ -114,70 +116,16 @@ function App() {
         changeDeadline={changeDeadline}
       />
       <div className="boxContainer">
-        <div className="working">
-          <span>📝 Working </span>
-          <div className="boxFlex">
-            {box
-              .filter((item) => item.isDone === false)
-              .map(function (item) {
-                return (
-                  <article key={item.id} className="TodoCard">
-                    <div className="TodoCard-body">
-                      <h2>{item.title}</h2>
-                      <p>{item.body}</p>
-                      <time>{item.deadline} 까지</time>
-                    </div>
-                    <div className="TodoCard-buttons">
-                      <button
-                        onClick={() => removeHandler(item.id)}
-                        className="removeBtn"
-                      >
-                        삭제하기
-                      </button>
-                      <button
-                        onClick={() => reLocateHandler(item.id)}
-                        className="completeBtn"
-                      >
-                        완료하기
-                      </button>
-                    </div>
-                  </article>
-                );
-              })}
-          </div>
-        </div>
-        <div className="done">
-          <span>👍🏻 Done</span>
-          <div className="boxFlex">
-            {box
-              .filter((item) => item.isDone === true)
-              .map(function (item) {
-                return (
-                  <article key={item.id} className="TodoCard">
-                    <div className="TodoCard-body">
-                      <h2>{item.title}</h2>
-                      <p>{item.body}</p>
-                      <time>{item.deadline} 까지</time>
-                    </div>
-                    <div className="TodoCard-buttons">
-                      <button
-                        onClick={() => removeHandler(item.id)}
-                        className="removeBtn"
-                      >
-                        삭제하기
-                      </button>
-                      <button
-                        onClick={() => reLocateHandler(item.id)}
-                        className="cancelBtn"
-                      >
-                        취소하기
-                      </button>
-                    </div>
-                  </article>
-                );
-              })}
-          </div>
-        </div>
+        <Working
+          box={box}
+          removeHandler={removeHandler}
+          reLocateHandler={reLocateHandler}
+        />
+        <Done
+          box={box}
+          removeHandler={removeHandler}
+          reLocateHandler={reLocateHandler}
+        />
       </div>
     </div>
   );
