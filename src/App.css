@@ -56,15 +56,35 @@ body {
   background-color: rgb(135, 206, 235);
 }
 
+/* working, done 타이틀과 select의 정렬 */
+.workingTitle,
+.doneTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.doneTitle {
+  margin-top: 20px;
+}
+
 /* Working, Done 타이틀 글씨 */
-.working > span {
+.workingTitle > span {
   font-size: 25px;
   font-weight: bold;
 }
 
-.done > span {
+.doneTitle > span {
   font-size: 25px;
   font-weight: bold;
+}
+
+/* select */
+.workingTitle > select {
+  margin-bottom: 10px;
+}
+
+.doneTitle > select {
+  margin-bottom: 10px;
 }
 
 /* Working, Done 박스 개별 디자인 */

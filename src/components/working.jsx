@@ -3,7 +3,13 @@ import React from 'react'
 function Working({box, removeHandler, reLocateHandler}) {
   return (
     <div className="working">
-    <span>📝 Working </span>
+      <div className='workingTitle'>
+        <span>📝 Working </span>
+        <select>
+          <option>오름차순</option>
+          <option>내림차순</option>
+        </select>
+      </div>
     <div className="boxFlex">
       {box
         .filter((item) => item.isDone === false)

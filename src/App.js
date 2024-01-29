@@ -46,13 +46,12 @@ function App() {
       makeInputEmpty();
     } else if (deadline === "") {
       alert("마감일을 지정해주세요.");
-      makeInputEmpty();
     } else {
       // input의 value 값 반영한 새로운 객체 생성
       const newDateObj = new Date(deadline);
       const afterChangeDateType = newDateObj.toLocaleDateString("ko-KR", {
         year: "numeric",
-        month: "long", // "long"을 사용하면 월 이름이 됩니다.
+        month: "long", // "long"을 사용하면 월 이름이 됨
         day: "numeric",
       });
 
