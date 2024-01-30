@@ -47,16 +47,6 @@ function App() {
     } else if (deadline === "") {
       alert("마감일을 지정해주세요.");
     } else {
-      // input의 value 값 반영한 새로운 객체 생성
-      const newDateObj = new Date(deadline);
-      const afterChangeDateType = newDateObj.toLocaleDateString("ko-KR", {
-        year: "numeric",
-        month: "long", // "long"을 사용하면 월 이름이 됨
-        day: "numeric",
-      });
-
-      setDeadline(afterChangeDateType);
-
       setBox((box) => [
         ...box,
         {
@@ -64,7 +54,7 @@ function App() {
           title: title,
           body: body,
           isDone: false,
-          deadline: afterChangeDateType,
+          deadline: deadline,
         },
       ]);
 
@@ -117,11 +107,13 @@ function App() {
       <div className="boxContainer">
         <Working
           box={box}
+          setBox={setBox}
           removeHandler={removeHandler}
           reLocateHandler={reLocateHandler}
         />
         <Done
           box={box}
+          setBox={setBox}
           removeHandler={removeHandler}
           reLocateHandler={reLocateHandler}
         />
