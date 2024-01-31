@@ -5,6 +5,7 @@ import InputBox from "./components/inputBox";
 import Header from "./layout/header";
 import Working from "./components/working";
 import Done from "./components/done";
+import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
   // box, title, body state설정
@@ -91,6 +92,7 @@ function App() {
   // JSX 시작
   return (
     <div className="container">
+      <GlobalStyle />
       <Header />
       {/* input 박스 - 컴포넌트 분리 */}
       <InputBox
