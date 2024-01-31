@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import * as St from "../styles/done.style";
 
 function Done({ box, setBox, removeHandler, reLocateHandler }) {
   const [sortOrder, setSortOrder] = useState("asc");
@@ -16,9 +17,9 @@ function Done({ box, setBox, removeHandler, reLocateHandler }) {
 
   return (
     <div className="done">
-      <div className="doneTitle">
-        <span>👍🏻 Done </span>
-        <select
+      <St.Title>
+        <St.TitleSpan>👍🏻 Done </St.TitleSpan>
+        <St.TitleSelect
           value={sortOrder}
           onChange={(e) => {
             setSortOrder(e.target.value);
@@ -27,37 +28,31 @@ function Done({ box, setBox, removeHandler, reLocateHandler }) {
         >
           <option value="asc">오름차순</option>
           <option value="desc">내림차순</option>
-        </select>
-      </div>
-      <div className="boxFlex">
+        </St.TitleSelect>
+      </St.Title>
+      <St.TodoListFlex>
         {box
           .filter((item) => item.isDone === true)
           .map(function (item) {
             return (
-              <article key={item.id} className="TodoCard">
-                <div className="TodoCard-body">
-                  <h2>{item.title}</h2>
+              <St.TodoList key={item.id}>
+                <St.TodoListBody>
+                  <St.H2>{item.title}</St.H2>
                   <p>{item.body}</p>
-                  <time>{item.deadline} 까지</time>
-                </div>
-                <div className="TodoCard-buttons">
-                  <button
-                    onClick={() => removeHandler(item.id)}
-                    className="removeBtn"
-                  >
+                  <St.Time>{item.deadline} 까지</St.Time>
+                </St.TodoListBody>
+                <St.TodoListBtns>
+                  <St.RemoveBtn onClick={() => removeHandler(item.id)}>
                     삭제하기
-                  </button>
-                  <button
-                    onClick={() => reLocateHandler(item.id)}
-                    className="cancelBtn"
-                  >
+                  </St.RemoveBtn>
+                  <St.CancelBtn onClick={() => reLocateHandler(item.id)}>
                     취소하기
-                  </button>
-                </div>
-              </article>
+                  </St.CancelBtn>
+                </St.TodoListBtns>
+              </St.TodoList>
             );
           })}
-      </div>
+      </St.TodoListFlex>
     </div>
   );
 }

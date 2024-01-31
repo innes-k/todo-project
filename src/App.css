@@ -20,38 +20,38 @@ body {
 }
 
 /* working, done 타이틀과 select의 정렬 */
-.workingTitle,
+/* .workingTitle,
 .doneTitle {
   display: flex;
   justify-content: space-between;
-}
+} */
 
-.doneTitle {
+/* .doneTitle {
   margin-top: 20px;
-}
+} */
 
 /* Working, Done 타이틀 글씨 */
-
+/* 
 .doneTitle > span {
   font-size: 25px;
   font-weight: bold;
-}
+} */
 
 /* select */
 
-.doneTitle > select {
+/* .doneTitle > select {
   margin-bottom: 10px;
-}
+} */
 
 /* Working, Done 박스 개별 디자인 */
 
 /* Working, Done 안에서의 박스 정렬 */
-.boxFlex {
+/* .boxFlex {
   display: flex;
   flex-wrap: wrap;
   min-height: 150px;
   border-top: 2px solid rgb(242, 242, 242);
-}
+} */
 
 /* 삭제, 완료, 취소 버튼 */
 .TodoCard-buttons > button {
