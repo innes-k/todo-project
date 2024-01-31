@@ -28,7 +28,6 @@ function App() {
   const changeDeadline = (e) => {
     setDeadline(e.target.value);
   };
-
   // 제목, 내용 input을 빈칸으로 초기화하는 함수
   const makeInputEmpty = () => {
     setTitle("");

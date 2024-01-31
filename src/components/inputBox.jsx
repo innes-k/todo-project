@@ -1,8 +1,10 @@
+import * as St from "../styles/inputBox.styles";
+
 // input Box 컴포넌트 (상단의 제목, 내용, 추가하기)
 function InputBox(props) {
   return (
-    <div className="container-inputTitle">
-      <div className="inputTitle">
+    <St.Container>
+      <St.Title>
         <div className="form-floating mb-3">
           <input
             value={props.title}
@@ -26,9 +28,9 @@ function InputBox(props) {
           />
           <label htmlFor="floatingInput">내용을 입력하세요</label>
         </div>
-        <time className="inputBox-time">
+        <St.Time>
           <label htmlFor="start">마감일 :</label>
-          <input
+          <St.TimeInput
             type="date"
             id="start"
             name="trip-start"
@@ -37,18 +39,18 @@ function InputBox(props) {
             value={props.deadline}
             onChange={props.changeDeadline}
           />
-        </time>
+        </St.Time>
         <div className="addBtn">
-          <button
+          <St.AddBtn
             onClick={props.addHandler}
             type="button"
             className="btn text-white"
           >
             추가하기
-          </button>
+          </St.AddBtn>
         </div>
-      </div>
-    </div>
+      </St.Title>
+    </St.Container>
   );
 }
 

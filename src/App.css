@@ -14,46 +14,9 @@ body {
   padding: 30px;
 }
 
-/* inputTitle 화면 가운데 정렬 */
-.container-inputTitle {
-  display: flex;
-  justify-content: center;
-}
-
-/* input box */
-.inputTitle {
-  width: 400px;
-  height: 270px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: white;
-  margin-bottom: 50px;
-  border-radius: 30px;
-  border: 2px solid rgb(135, 206, 235);
-}
-
-/* input칸 너비 */
+/* inputBox 제목, 내용 부트스트랩 너비 */
 .form-floating {
   width: 300px;
-}
-
-.inputBox-time {
-  margin-bottom: 10px;
-}
-
-.inputBox-time > input {
-  width: 250px;
-  height: 30px;
-  text-align: center;
-}
-
-/* '추가하기' 버튼 너비 */
-.addBtn > button {
-  width: 300px;
-  background-color: rgb(135, 206, 235);
 }
 
 /* working, done 타이틀과 select의 정렬 */
