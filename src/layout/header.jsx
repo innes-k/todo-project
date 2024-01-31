@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import * as St from "../styles/header.style";
 
 function Header() {
   return (
-    <div className="title">
-        <span>☁️ Welcome to To Do List! ⛅️</span>
-      </div>
-  )
+    <St.Title>
+      <span>☁️ Welcome to To Do List! ⛅️</span>
+    </St.Title>
+  );
 }
 
-export default Header
+export default Header;

@@ -6,67 +6,7 @@ body {
   margin: 0px auto auto auto;
 }
 
-/* 최상위 타이틀 */
-.title {
-  font-size: 50px;
-  font-weight: bold;
-  text-align: center;
-  padding: 30px;
-}
-
 /* inputBox 제목, 내용 부트스트랩 너비 */
 .form-floating {
   width: 300px;
-}
-
-/* working, done 타이틀과 select의 정렬 */
-/* .workingTitle,
-.doneTitle {
-  display: flex;
-  justify-content: space-between;
-} */
-
-/* .doneTitle {
-  margin-top: 20px;
-} */
-
-/* Working, Done 타이틀 글씨 */
-/* 
-.doneTitle > span {
-  font-size: 25px;
-  font-weight: bold;
-} */
-
-/* select */
-
-/* .doneTitle > select {
-  margin-bottom: 10px;
-} */
-
-/* Working, Done 박스 개별 디자인 */
-
-/* Working, Done 안에서의 박스 정렬 */
-/* .boxFlex {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 150px;
-  border-top: 2px solid rgb(242, 242, 242);
-} */
-
-/* 삭제, 완료, 취소 버튼 */
-.TodoCard-buttons > button {
-  width: 80px;
-  margin-bottom: 10px;
-}
-
-.completeBtn,
-.cancelBtn {
-  color: rgb(91, 91, 91);
-  border: 0px;
-  border-radius: 10px;
-  color: white;
-}
-
-.cancelBtn {
-  background-color: rgb(101, 161, 211);
 }
