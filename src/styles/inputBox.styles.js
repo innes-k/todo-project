@@ -7,7 +7,6 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   width: 400px;
-  height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +18,12 @@ export const Title = styled.div`
   border: 2px solid rgb(135, 206, 235);
 `;
 
+export const TitleInput = styled.input`
+  width: 300px;
+  height: 40px;
+  margin: 10px auto 10px auto;
+`;
+
 export const Time = styled.time`
   margin-bottom: 10px;
 `;
@@ -27,9 +32,17 @@ export const TimeInput = styled.input`
   width: 250px;
   height: 30px;
   text-align: center;
+  margin: 10px auto 0px auto;
 `;
 
 export const AddBtn = styled.button`
   width: 300px;
+  height: 40px;
+  margin: 10px;
   background-color: rgb(135, 206, 235);
+
+  color: white;
+  font-size: 15px;
+  border: 0px;
+  border-radius: 10px;
 `;

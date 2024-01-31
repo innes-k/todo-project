@@ -64,6 +64,7 @@ export const TodoListBtns = styled.div`
 
 export const RemoveBtn = styled.button`
   width: 80px;
+  height: 30px;
   margin-bottom: 10px;
 
   color: rgb(91, 91, 91);
