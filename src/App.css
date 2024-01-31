@@ -31,10 +31,6 @@ body {
 }
 
 /* Working, Done 타이틀 글씨 */
-.workingTitle > span {
-  font-size: 25px;
-  font-weight: bold;
-}
 
 .doneTitle > span {
   font-size: 25px;
@@ -42,57 +38,12 @@ body {
 }
 
 /* select */
-.workingTitle > select {
-  margin-bottom: 10px;
-}
 
 .doneTitle > select {
   margin-bottom: 10px;
 }
 
 /* Working, Done 박스 개별 디자인 */
-.TodoCard {
-  border: 2px solid rgb(135, 206, 235);
-  background-color: white;
-  border-radius: 30px;
-  width: 250px;
-  /* min-height: 170px; */
-  padding: 20px 20px 10px 20px;
-  margin: 14px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.TodoCard-body {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.TodoCard-body > h2 {
-  font-size: 25px;
-}
-
-.TodoCard-body {
-  font-size: 20px;
-  word-wrap: break-word;
-}
-
-time {
-  font-size: 15px;
-  color: gray;
-}
-
-.TodoCard-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.TodoCard:hover {
-  box-shadow: 0px 0px 10px 0px rgb(32, 172, 227);
-}
 
 /* Working, Done 안에서의 박스 정렬 */
 .boxFlex {
@@ -108,23 +59,12 @@ time {
   margin-bottom: 10px;
 }
 
-.removeBtn {
-  color: rgb(91, 91, 91);
-  background-color: rgb(255, 236, 130);
-  border: 0px;
-  border-radius: 10px;
-}
-
 .completeBtn,
 .cancelBtn {
   color: rgb(91, 91, 91);
   border: 0px;
   border-radius: 10px;
   color: white;
-}
-
-.completeBtn {
-  background-color: rgba(235, 154, 2, 0.92);
 }
 
 .cancelBtn {
