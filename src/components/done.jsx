@@ -37,8 +37,8 @@ function Done({ box, setBox, removeHandler, reLocateHandler }) {
             return (
               <St.TodoList key={item.id}>
                 <St.TodoListBody>
-                  <St.H2>{item.title}</St.H2>
-                  <p>{item.body}</p>
+                  <St.Span>{item.title}</St.Span>
+                  <St.P>{item.body}</St.P>
                   <St.Time>{item.deadline} 까지</St.Time>
                 </St.TodoListBody>
                 <St.TodoListBtns>

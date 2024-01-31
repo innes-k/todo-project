@@ -47,8 +47,10 @@ export const TodoListBody = styled.div`
   word-wrap: break-word;
 `;
 
-export const H2 = styled.h2`
+export const Span = styled.span`
   font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
 `;
 
 export const Time = styled.time`

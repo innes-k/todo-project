@@ -37,7 +37,7 @@ function Working({ box, setBox, removeHandler, reLocateHandler }) {
             return (
               <St.TodoList key={item.id}>
                 <St.TodoListBody>
-                  <St.H2>{item.title}</St.H2>
+                  <St.Span>{item.title}</St.Span>
                   <p>{item.body}</p>
                   <St.Time>
                     {new Date(item.deadline).toLocaleDateString("ko-KR", {
