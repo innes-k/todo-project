@@ -35,28 +35,30 @@ function Working({ box, setBox, removeHandler, reLocateHandler }) {
           .filter((item) => item.isDone === false)
           .map(function (item) {
             return (
-              <St.TodoList key={item.id}>
-                <St.TodoListBody>
-                  <St.Span>{item.title}</St.Span>
-                  <p>{item.body}</p>
-                  <St.Time>
-                    {new Date(item.deadline).toLocaleDateString("ko-KR", {
-                      year: "numeric",
-                      month: "long", // "long"을 사용하면 월 이름이 됨
-                      day: "numeric",
-                    })}
-                    까지
-                  </St.Time>
-                </St.TodoListBody>
-                <St.TodoListBtns>
-                  <St.RemoveBtn onClick={() => removeHandler(item.id)}>
-                    삭제하기
-                  </St.RemoveBtn>
-                  <St.CompleteBtn onClick={() => reLocateHandler(item.id)}>
-                    완료하기
-                  </St.CompleteBtn>
-                </St.TodoListBtns>
-              </St.TodoList>
+              <St.LinkTo to={`/detail/${item.id}`} key={item.id}>
+                <St.TodoList>
+                  <St.TodoListBody>
+                    <St.Span>{item.title}</St.Span>
+                    <p>{item.body}</p>
+                    <St.Time>
+                      {new Date(item.deadline).toLocaleDateString("ko-KR", {
+                        year: "numeric",
+                        month: "long", // "long"을 사용하면 월 이름이 됨
+                        day: "numeric",
+                      })}
+                      까지
+                    </St.Time>
+                  </St.TodoListBody>
+                  <St.TodoListBtns>
+                    <St.RemoveBtn onClick={() => removeHandler(item.id)}>
+                      삭제하기
+                    </St.RemoveBtn>
+                    <St.CompleteBtn onClick={() => reLocateHandler(item.id)}>
+                      완료하기
+                    </St.CompleteBtn>
+                  </St.TodoListBtns>
+                </St.TodoList>
+              </St.LinkTo>
             );
           })}
       </St.TodoListFlex>

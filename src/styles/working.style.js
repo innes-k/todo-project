@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Title = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ export const TodoListFlex = styled.div`
   flex-wrap: wrap;
   min-height: 150px;
   border-top: 2px solid rgb(242, 242, 242);
+  cursor: pointer;
 `;
 
 export const TodoList = styled.article`
@@ -83,4 +85,12 @@ export const CompleteBtn = styled.button`
   border: 0px;
   border-radius: 10px;
   color: white;
+`;
+
+export const LinkTo = styled(Link)`
+  text-decoration: none;
+  & span,
+  p {
+    color: black;
+  }
 `;
