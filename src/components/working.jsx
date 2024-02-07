@@ -35,8 +35,8 @@ function Working({ box, setBox, removeHandler, reLocateHandler }) {
           .filter((item) => item.isDone === false)
           .map(function (item) {
             return (
-              <St.LinkTo to={`/detail/${item.id}`} key={item.id}>
-                <St.TodoList>
+              <St.TodoList key={item.id}>
+                <St.LinkTo to={`/detail/${item.id}`}>
                   <St.TodoListBody>
                     <St.Span>{item.title}</St.Span>
                     <p>{item.body}</p>
@@ -49,16 +49,16 @@ function Working({ box, setBox, removeHandler, reLocateHandler }) {
                       까지
                     </St.Time>
                   </St.TodoListBody>
-                  <St.TodoListBtns>
-                    <St.RemoveBtn onClick={() => removeHandler(item.id)}>
-                      삭제하기
-                    </St.RemoveBtn>
-                    <St.CompleteBtn onClick={() => reLocateHandler(item.id)}>
-                      완료하기
-                    </St.CompleteBtn>
-                  </St.TodoListBtns>
-                </St.TodoList>
-              </St.LinkTo>
+                </St.LinkTo>
+                <St.TodoListBtns>
+                  <St.RemoveBtn onClick={() => removeHandler(item.id)}>
+                    삭제하기
+                  </St.RemoveBtn>
+                  <St.CompleteBtn onClick={() => reLocateHandler(item.id)}>
+                    완료하기
+                  </St.CompleteBtn>
+                </St.TodoListBtns>
+              </St.TodoList>
             );
           })}
       </St.TodoListFlex>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import * as St from "../styles/done.style";
+import { LinkTo } from "../styles/working.style";
 
 function Done({ box, setBox, removeHandler, reLocateHandler }) {
   const [sortOrder, setSortOrder] = useState("asc");
@@ -36,11 +37,13 @@ function Done({ box, setBox, removeHandler, reLocateHandler }) {
           .map(function (item) {
             return (
               <St.TodoList key={item.id}>
-                <St.TodoListBody>
-                  <St.Span>{item.title}</St.Span>
-                  <St.P>{item.body}</St.P>
-                  <St.Time>{item.deadline} 까지</St.Time>
-                </St.TodoListBody>
+                <LinkTo to={`/detail/${item.id}`}>
+                  <St.TodoListBody>
+                    <St.Span>{item.title}</St.Span>
+                    <St.P>{item.body}</St.P>
+                    <St.Time>{item.deadline} 까지</St.Time>
+                  </St.TodoListBody>
+                </LinkTo>
                 <St.TodoListBtns>
                   <St.RemoveBtn onClick={() => removeHandler(item.id)}>
                     삭제하기

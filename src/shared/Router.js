@@ -4,7 +4,15 @@ import Detail from "../pages/Detail";
 import { useState } from "react";
 
 const Router = () => {
-  const [box, setBox] = useState([]);
+  const [box, setBox] = useState([
+    {
+      id: Date.now(),
+      title: "Todo List 정복!",
+      body: "Todo List를 마스터해보자",
+      isDone: false,
+      deadline: "2024-01-31",
+    },
+  ]);
   return (
     <BrowserRouter>
       <Routes>
